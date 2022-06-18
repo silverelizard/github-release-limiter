@@ -1,11 +1,18 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Github Release Limiter'
+description: 'Github action to limit the number of releases in a repo'
+author: 'Corrine Olson'
 inputs:
-  milliseconds: # change this
+  myToken:
+    description: this should be a token with access to your repository scoped in as a secret
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+  maxReleases:
+    description: maximum number of releases allowed in repo
+    required: true
+  deleteTags:
+    description: whether to delete tags associated to releases
+    required: false
+    default: false
+
 runs:
   using: 'node16'
   main: 'dist/index.js'
